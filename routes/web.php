@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function(){
 
     Route::controller(DashboardController::class)->group(function(){
-        Route::get('/admin/dashboard', 'Index');
+        Route::get('/admin/dashboard', 'Index')->name('admindashboard');
     });
 
     Route::controller(CategoryController::class)->group(function(){
