@@ -15,4 +15,8 @@ class CategoryController extends Controller
     public function AddCategory(){
         return view('admin.addcategory');
     }
+
+    Public function StoreCategory(Request $request){
+        
+    }
 }
