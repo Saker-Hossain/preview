@@ -10,7 +10,8 @@ class CategoryController extends Controller
 {
 
     public function Index(){
-        return view('admin.allcategory');
+        $categories = Category::latest()->get();
+        return view('admin.allcategory', compact('categories'));
     }
 
     public function AddCategory(){
