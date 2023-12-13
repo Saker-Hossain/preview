@@ -25,16 +25,18 @@ All Sub Category
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    <tr>
-                        <td>1</td>
-                        <td>fan</td>
-                        <td>Elctronics</td>
-                        <td>100</td>
-                        <td>
-                            <a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-warning">Delete</a>
-                        </td>
-                    </tr>
+                    @foreach ($allsubcategories as $subcategory)
+                        <tr>
+                            <td>{{$subcategory->id}}</td>
+                            <td>{{$subcategory->subcategory_name}}</td>
+                            <td>{{$subcategory->category_name}}</td>
+                            <td>{{$subcategory->product_count}}</td>
+                            <td>
+                                <a href="" class="btn btn-primary">Edit</a>
+                                <a href="" class="btn btn-warning">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
