@@ -20,4 +20,18 @@ class ProductController extends Controller
         $subcategories = Subcategory::latest()->get();
         return view('admin.addproduct', compact('categories', 'subcategories'));
     }
+
+    public function StoreProduct(Request $request){
+        $request->validate([
+            'product_name' => 'required|unique:products',
+            'price' => 'required',
+            'cost' => '',
+            'quantity' => 'required',
+            'product_short_des' => 'required',
+            'product_long_des' => 'required',
+            'product_category_id' => 'required',
+            'product_subcategory_id' => 'required',
+            'category_id' => 'required',
+        ]);
+    }
 }
