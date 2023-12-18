@@ -33,5 +33,11 @@ class ProductController extends Controller
             'product_subcategory_id' => 'required',
             'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        $category_id = $request->product_category_id;
+        $subcategory_id = $request->product_subcategory_id;
+
+        $category_name = Category::where('id', $category_id)->value('category_name');
+        $subcategory_name = Subcategory::where('id', $subcategory_id)->value('subcategory_name');
     }
 }
