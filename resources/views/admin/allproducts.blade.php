@@ -43,7 +43,7 @@ All Product
                         </td>
                         <td>
                             <a href="{{route('editproduct', $product->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-warning">Delete</a>
+                            <a href="{{route('deleteproduct', $product->id)}}" class="btn btn-warning">Delete</a>
                         </td>
                     </tr>
                     @endforeach
