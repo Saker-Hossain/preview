@@ -5,6 +5,11 @@ All Product
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pages/</span> All Product</h4>
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <!-- Bootstrap Table with Header - Light -->
     <div class="card">
         <h5 class="card-header">Available All Product Information</h5>
@@ -40,4 +45,3 @@ All Product
     </div>
 </div>
 @endsection
-
