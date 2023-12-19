@@ -90,4 +90,36 @@ class ProductController extends Controller
 
         return redirect()->route('allproduct')->with('message', "Product Image Updated Successfully!");
     }
+
+    public function EditProduct($id){
+
+        $productinfo = Product::findOrFail($id);
+
+        return view('admin.editproduct', compact('productinfo'));
+    }
+
+    public function UpdateProduct(Request $request){
+
+        $productid = $request->id;
+        $request->validate([
+            'product_name' => 'required|unique:products',
+            'price' => 'required',
+            'cost' => 'required',
+            'quantity' => 'required',
+            'product_short_des' => 'required',
+            'product_long_des' => 'required',
+        ]);
+
+        Product::findOrFail($productid)->Update([
+            'product_name' => $request->product_name,
+            'product_short_des' => $request->product_short_des,
+            'product_long_des' => $request->product_long_des,
+            'price' => $request->price,
+            'cost' => $request->cost,
+            'quantity' => $request->quantity,
+            'slug' => strtolower(str_replace(' ','-', $request->product_name)),
+        ]);
+
+        return redirect()->route('allproduct')->with('message', "Product Information Updated Successfully!");
+    }
 }

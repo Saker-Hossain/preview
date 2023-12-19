@@ -42,7 +42,7 @@ All Product
                             <a href="{{route('editproductimg', $product->id)}}" class="btn btn-primary">Update Image</a>
                         </td>
                         <td>
-                            <a href="" class="btn btn-primary">Edit</a>
+                            <a href="{{route('editproduct', $product->id)}}" class="btn btn-primary">Edit</a>
                             <a href="" class="btn btn-warning">Delete</a>
                         </td>
                     </tr>
