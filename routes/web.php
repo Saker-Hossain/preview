@@ -11,7 +11,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user_template.layouts.template');
 });
 
 Route::get('/dashboard', function () {

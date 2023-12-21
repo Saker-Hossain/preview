@@ -201,7 +201,7 @@
     <!-- ##### Right Side Cart End ##### -->
 
     <!-- ##### Welcome Area Start ##### -->
-    <section class="welcome_area bg-img background-overlay" style="background-image: url(img/bg-img/bg-1.jpg);">
+    <section class="welcome_area bg-img background-overlay" style="background-image: url({{ asset('home/img/bg-img/bg-1.jpg') }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -222,7 +222,7 @@
             <div class="row justify-content-center">
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ asset('home/img/bg-img/bg-2.jpg') }});">
                         <div class="catagory-content">
                             <a href="#">Clothing</a>
                         </div>
@@ -230,7 +230,7 @@
                 </div>
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-3.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ asset('home/img/bg-img/bg-3.jpg') }});">
                         <div class="catagory-content">
                             <a href="#">Shoes</a>
                         </div>
@@ -238,7 +238,7 @@
                 </div>
                 <!-- Single Catagory -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(img/bg-img/bg-4.jpg);">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url({{ asset('home/img/bg-img/bg-4.jpg') }});">
                         <div class="catagory-content">
                             <a href="#">Accessories</a>
                         </div>
@@ -254,7 +254,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="cta-content bg-img background-overlay" style="background-image: url(img/bg-img/bg-5.jpg);">
+                    <div class="cta-content bg-img background-overlay" style="background-image: url({{ asset('home/img/bg-img/bg-5.jpg') }});">
                         <div class="h-100 d-flex align-items-center justify-content-end">
                             <div class="cta--text">
                                 <h6>-60%</h6>
