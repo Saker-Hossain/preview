@@ -5,13 +5,14 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
-Route::get('/', function () {
-    return view('user_template.layouts.template');
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/', 'Index')->name('Home');
 });
 
 Route::get('/dashboard', function () {
