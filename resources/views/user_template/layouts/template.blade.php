@@ -84,8 +84,10 @@
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{route('category')}}">Gift Ideas</a></li>
+                            <li><a href="{{route('newrelease')}}">New Releases</a></li>
+                            <li><a href="{{route('todaysdeal')}}">Today's Deals</a></li>
+                            <li><a href="{{route('customerservice')}}">Customer Service</a></li>
                         </ul>
                     </div>
                     <!-- Nav End -->
@@ -107,7 +109,7 @@
                 </div>
                 <!-- User Login Info -->
                 <div class="user-login-info">
-                    <a href="#"><img src="{{ asset('home/img/core-img/user.svg') }}" alt=""></a>
+                    <a href="{{route('userprofile')}}"><img src="{{ asset('home/img/core-img/user.svg') }}" alt=""></a>
                 </div>
                 <!-- Cart Area -->
                 <div class="cart-area">
