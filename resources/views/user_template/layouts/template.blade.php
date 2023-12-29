@@ -44,7 +44,13 @@
                             <li><a href="#">Shop</a>
                                 <div class="megamenu">
                                     <ul class="single-mega cn-col-4">
-                                        <li class="title">Women's Collection</li>
+                                        @php
+                                            $categories = App\Models\Category::latest()->get();
+                                        @endphp
+                                        @foreach ($categories as $category)
+                                        <li class="title">{{$category->category_name}}</li>
+
+                                        @endforeach
                                         <li><a href="shop.html">Dresses</a></li>
                                         <li><a href="shop.html">Blouses &amp; Shirts</a></li>
                                         <li><a href="shop.html">T-shirts</a></li>
