@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading text-center">
-                    <h2>Popular Products</h2>
+                    <h2>All Products</h2>
                 </div>
             </div>
         </div>
@@ -71,12 +71,14 @@
                 <div class="popular-products-slides owl-carousel">
 
                     <!-- Single Product -->
+
+                    @foreach ($allproducts as $product)
                     <div class="single-product-wrapper">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <img src="{{asset('home/img/product-img/product-1.jpg')}}" alt="">
+                            <img src="{{asset($product->product_img)}}" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{asset('home/img/product-img/product-2.jpg')}}" alt="">
+                            {{-- <img class="hover-img" src="{{asset('home/img/product-img/product-2.jpg')}}" alt=""> --}}
                             <!-- Favourite -->
                             <div class="product-favourite">
                                 <a href="#" class="favme fa fa-heart"></a>
@@ -86,9 +88,9 @@
                         <div class="product-description">
                             <span>topshop</span>
                             <a href="single-product-details.html">
-                                <h6>Knot Front Mini Dress</h6>
+                                <h6>{{$product->product_name}}</h6>
                             </a>
-                            <p class="product-price">$80.00</p>
+                            <p class="product-price">${{$product->price}}</p>
 
                             <!-- Hover Content -->
                             <div class="hover-content">
@@ -99,8 +101,9 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
-                    <!-- Single Product -->
+                    {{-- <!-- Single Product -->
                     <div class="single-product-wrapper">
                         <!-- Product Image -->
                         <div class="product-img">
@@ -199,7 +202,7 @@
                                     <a href="#" class="btn essence-btn">Add to Cart</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -236,5 +239,5 @@
     </div>
 </div>
 <!-- ##### Brands Area End ##### -->
-{{asset('home/')}}
+
 @endsection
