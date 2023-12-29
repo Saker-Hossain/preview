@@ -85,6 +85,9 @@
                             </div>
                         </div>
                         <!-- Product Description -->
+                        {{-- <div class="seemore_bt">
+                            <a href="">See More</a>
+                        </div> --}}
                         <div class="product-description">
                             <span>topshop</span>
                             <a href="single-product-details.html">
@@ -96,7 +99,7 @@
                             <div class="hover-content">
                                 <!-- Add to Cart -->
                                 <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                    <a href="{{route('singleproduct', [$product->id, $product->slug])}}" class="btn essence-btn">See More</a>
                                 </div>
                             </div>
                         </div>
