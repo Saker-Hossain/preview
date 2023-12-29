@@ -48,7 +48,7 @@
                                             $categories = App\Models\Category::latest()->get();
                                         @endphp
                                         @foreach ($categories as $category)
-                                        <li class="title">{{$category->category_name}}</li>
+                                        <a class="title" href="{{route('category', [$category->id, $category->slug])}}">{{$category->category_name}}</a>
 
                                         @endforeach
                                         <li><a href="shop.html">Dresses</a></li>
@@ -90,7 +90,7 @@
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{route('category')}}">Gift Ideas</a></li>
+                            <li><a href="">Gift Ideas</a></li>
                             <li><a href="{{route('newrelease')}}">New Releases</a></li>
                             <li><a href="{{route('todaysdeal')}}">Today's Deals</a></li>
                             <li><a href="{{route('customerservice')}}">Customer Service</a></li>
