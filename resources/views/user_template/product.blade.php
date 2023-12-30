@@ -5,7 +5,7 @@
     <!-- Single Product Thumb -->
     <div class="single_product_thumb clearfix">
         <div class="product_thumbnail_slides owl-carousel">
-            <img src="img/product-img/product-big-1.jpg" alt="">
+            <img src="{{asset($product->product_img)}}" alt="">
             <img src="img/product-img/product-big-2.jpg" alt="">
             <img src="img/product-img/product-big-3.jpg" alt="">
         </div>
@@ -13,13 +13,14 @@
 
     <!-- Single Product Description -->
     <div class="single_product_desc clearfix">
-        <span>mango</span>
+        <span>{{$product->product_category_name}}->{{$product->product_subcategory_name}}</span>
         <a href="cart.html">
-            <h2>One Shoulder Glitter Midi Dress</h2>
+            <h2>{{$product->product_name}}</h2>
         </a>
-        <p class="product-price"><span class="old-price">$65.00</span> $49.00</p>
-        <p class="product-desc">Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante. Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.</p>
+        <p class="product-price"><span class="old-price">$65.00</span> ${{$product->price}}</p>
+        <p class="product-desc">{{$product->product_long_des}}</p>
 
+        <span style="color: #989898">Available Quantity {{$product->quantity}}</span>
         <!-- Form -->
         <form class="cart-form clearfix" method="post">
             <!-- Select Box -->
@@ -64,11 +65,11 @@
             <div class="col-12">
                 <div class="popular-products-slides owl-carousel">
 
-                    <!-- Single Product -->
+                    @foreach ($related_products as $product)
                     <div class="single-product-wrapper">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <img src="home/img/product-img/product-2.jpg" alt="">
+                            <img src="{{asset($product->product_img)}}" alt="">
                             <!-- Hover Thumb -->
                             {{-- <img class="hover-img" src="{{asset('home/img/product-img/product-2.jpg')}}" alt="">
                             --}}
@@ -80,19 +81,21 @@
                         <div class="product-description">
                             <span>topshop</span>
                             <a href="single-product-details.html">
-                                <h6>Product Name</h6>
+                                <h6>{{$product->product_name}}</h6>
                             </a>
-                            <p class="product-price">$ 50</p>
+                            <p class="product-price">${{$product->price}}</p>
 
                             <!-- Hover Content -->
                             <div class="hover-content">
                                 <!-- Add to Cart -->
                                 <div class="add-to-cart-btn">
-                                    <a href="">See More</a>
+                                    <a href="{{route('singleproduct', [$product->id, $product->slug])}}"
+                                        class="btn essence-btn">See More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
