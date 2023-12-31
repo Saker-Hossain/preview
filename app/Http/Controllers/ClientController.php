@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+}
     public function CategoryPage($id){
         $category = Category::findOrFail($id);
         $products = product::where('product_category_id', $id)->latest()->get();

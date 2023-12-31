@@ -6,8 +6,8 @@
     <div class="single_product_thumb clearfix">
         <div class="product_thumbnail_slides owl-carousel">
             <img src="{{asset($product->product_img)}}" alt="">
-            <img src="img/product-img/product-big-2.jpg" alt="">
-            <img src="img/product-img/product-big-3.jpg" alt="">
+            <img src="{{asset($product->product_img)}}" alt="">
+            <img src="{{asset($product->product_img)}}" alt="">
         </div>
     </div>
 
