@@ -31,9 +31,10 @@
                                 <a href="#" class="favme fa fa-heart"></a>
                             </div>
                         </div>
-                        <!-- Product Description -->
                         <div class="product-description">
-                            <span>topshop</span>
+                            {{-- <span>topshop</span> --}}
+                            <a href="{{route('singleproduct', [$product->id, $product->slug])}}" style="color: RED">see
+                                more</a>
                             <a href="single-product-details.html">
                                 <h6>{{$product->product_name}}</h6>
                             </a>
@@ -43,7 +44,13 @@
                             <div class="hover-content">
                                 <!-- Add to Cart -->
                                 <div class="add-to-cart-btn">
-                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                    <form action="{{route('addproducttocart'}}" method="post">
+                                        @csrf
+                                        <div class="form_group">
+                                            <input type="hidden" value="{{$product->id}}" name="product_id">
+                                        </div>
+                                        <input class="btn essence-btn" type="submit" value="Buy Now">
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -33,7 +33,8 @@
                             </div>
                         </div>
                         <div class="product-description">
-                            <span>topshop</span>
+                            <a href="{{route('singleproduct', [$product->id, $product->slug])}}" style="color: RED">see
+                                more</a>
                             <a href="single-product-details.html">
                                 <h6>{{$product->product_name}}</h6>
                             </a>
@@ -43,8 +44,13 @@
                             <div class="hover-content">
                                 <!-- Add to Cart -->
                                 <div class="add-to-cart-btn">
-                                    <a href="{{route('singleproduct', [$product->id, $product->slug])}}"
-                                        class="btn essence-btn">See More</a>
+                                    <form action="{{route('addproducttocart')}}" method="post">
+                                        @csrf
+                                        <div class="form_group">
+                                            <input type="hidden" value="{{$product->id}}" name="product_id">
+                                        </div>
+                                        <input class="btn essence-btn" type="submit" value="Buy Now">
+                                    </form>
                                 </div>
                             </div>
                         </div>

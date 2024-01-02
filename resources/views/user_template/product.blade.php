@@ -22,7 +22,7 @@
 
         <span style="color: #989898">Available Quantity {{$product->quantity}}</span>
         <!-- Form -->
-        <form class="cart-form clearfix" method="post">
+        {{-- <form class="cart-form clearfix" method="post">
             <!-- Select Box -->
             <div class="select-box d-flex mt-50 mb-30">
                 <select name="select" id="productSize" class="mr-5">
@@ -37,11 +37,21 @@
                     <option value="value">Color: Red</option>
                     <option value="value">Color: Purple</option>
                 </select>
-            </div>
+            </div> --}}
             <!-- Cart & Favourite Box -->
             <div class="cart-fav-box d-flex align-items-center">
                 <!-- Cart -->
-                <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button>
+                <form action="{{route('addproducttocart')}}" method="post">
+                    @csrf
+                    <div class="form_group">
+                        <input type="hidden" value="{{$product->id}}" name="product_id">
+                        <label for="product_quantity">How many piece?</label>
+                        <input class="" type="number" min="1" placeholder="1" name="product_quantity">
+                    </div>
+
+                    <input class="btn essence-btn" type="submit" value="Add To Cart">
+                </form>
+                {{-- <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button> --}}
                 <!-- Favourite -->
                 <div class="product-favourite ml-4">
                     <a href="#" class="favme fa fa-heart"></a>
@@ -66,35 +76,42 @@
                 <div class="popular-products-slides owl-carousel">
 
                     @foreach ($related_products as $product)
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <img src="{{asset($product->product_img)}}" alt="">
-                            <!-- Hover Thumb -->
-                            {{-- <img class="hover-img" src="{{asset('home/img/product-img/product-2.jpg')}}" alt="">
-                            --}}
-                            <!-- Favourite -->
-                            <div class="product-favourite">
-                                <a href="#" class="favme fa fa-heart"></a>
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="{{asset($product->product_img)}}" alt="">
+                                <!-- Hover Thumb -->
+                                {{-- <img class="hover-img" src="{{asset('home/img/product-img/product-2.jpg')}}" alt="">
+                                --}}
+                                <!-- Favourite -->
+                                <div class="product-favourite">
+                                    <a href="#" class="favme fa fa-heart"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-description">
-                            <span>topshop</span>
-                            <a href="single-product-details.html">
-                                <h6>{{$product->product_name}}</h6>
-                            </a>
-                            <p class="product-price">${{$product->price}}</p>
+                            <div class="product-description">
+                                {{-- <span>topshop</span> --}}
+                                <a href="{{route('singleproduct', [$product->id, $product->slug])}}" style="color: RED">see
+                                    more</a>
+                                <a href="single-product-details.html">
+                                    <h6>{{$product->product_name}}</h6>
+                                </a>
+                                <p class="product-price">${{$product->price}}</p>
 
-                            <!-- Hover Content -->
-                            <div class="hover-content">
-                                <!-- Add to Cart -->
-                                <div class="add-to-cart-btn">
-                                    <a href="{{route('singleproduct', [$product->id, $product->slug])}}"
-                                        class="btn essence-btn">See More</a>
+                                <!-- Hover Content -->
+                                <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <form action="{{route('addproducttocart',$product->id)}}" method="post">
+                                            @csrf
+                                            <div class="form_group">
+                                                <input type="hidden" value="{{$product->id}}" name="product_id">
+                                            </div>
+                                            <input class="btn essence-btn" type="submit" value="Buy Now">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
