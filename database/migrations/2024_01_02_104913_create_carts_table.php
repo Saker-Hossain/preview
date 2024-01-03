@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('product_id');
             $table->integer('user_id');
             $table->integer('quantity')->default(1);
-            $table->string('size');
-            $table->string('color');
+            $table->text('size')->default('M');
+            $table->text('color')->default('Black');
             $table->integer('price');
             $table->timestamps();
         });

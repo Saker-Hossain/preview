@@ -48,6 +48,8 @@
                                         @csrf
                                         <div class="form_group">
                                             <input type="hidden" value="{{$product->id}}" name="product_id">
+                                            <input type="hidden" value="{{$product->price}}" name="price">
+                                            <input type="hidden" value="1" name="quantity">
                                         </div>
                                         <input class="btn essence-btn" type="submit" value="Buy Now">
                                     </form>

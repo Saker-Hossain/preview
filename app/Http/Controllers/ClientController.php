@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -26,11 +28,24 @@ class ClientController extends Controller
     }
 
     public function AddToCart(){
-        return view('user_template.addtocart');
+        $userid = Auth::id();
+        $cart_item = Cart::where('user_id', $userid)->get();
+        return view('user_template.addtocart', compact('cart_item'));
     }
 
-    public function AddProductToCart(){
-        
+    public function AddProductToCart(Request $request){
+        $product_price = $request->price;
+        $quantity = $request->quantity;
+        $price = $product_price * $quantity;
+        Cart::insert([
+            'product_id' => $request->product_id,
+            'user_id' => Auth::id(),
+            'quantity' => $request->quantity,
+            'price' => $price,
+            'color' => $request->color,
+            'size' => $request->size,
+        ]);
+        return redirect()->route('addtocart')->with('message', "Your item added to cart successfully.");
     }
 
     public function Checkout(){

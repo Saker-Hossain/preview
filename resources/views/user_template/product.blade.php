@@ -45,17 +45,34 @@
                     @csrf
                     <div class="form_group">
                         <input type="hidden" value="{{$product->id}}" name="product_id">
-                        <label for="product_quantity">How many piece?</label>
-                        <input class="" type="number" min="1" placeholder="1" name="product_quantity">
+                        <input type="hidden" value="{{$product->price}}" name="price">
+                        {{-- <div class="select-box d-flex mt-50 mb-30">
+                            <select name="select" id="productSize" class="mr-5">
+                                <option value="value">Size: XL</option>
+                                <option value="value">Size: X</option>
+                                <option value="value">Size: M</option>
+                                <option value="value">Size: S</option>
+                            </select>
+                            <select name="select" id="productColor">
+                                <option value="value">Color: Black</option>
+                                <option value="value">Color: White</option>
+                                <option value="value">Color: Red</option>
+                                <option value="value">Color: Purple</option>
+                            </select>
+                        </div> --}}
+                        <label for="quantity">How many piece?</label>
+                        <input class="" type="number" min="1" placeholder="1" name="quantity">
+                        <input type="hidden" value="M" name="size">
+                        <input type="hidden" value="Black" name="color">
                     </div>
 
                     <input class="btn essence-btn" type="submit" value="Add To Cart">
                 </form>
                 {{-- <button type="submit" name="addtocart" value="5" class="btn essence-btn">Add to cart</button> --}}
                 <!-- Favourite -->
-                <div class="product-favourite ml-4">
+                {{-- <div class="product-favourite ml-4">
                     <a href="#" class="favme fa fa-heart"></a>
-                </div>
+                </div> --}}
             </div>
         </form>
     </div>
@@ -101,10 +118,14 @@
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
-                                        <form action="{{route('addproducttocart',$product->id)}}" method="post">
+                                        <form action="{{route('addproducttocart')}}" method="post">
                                             @csrf
                                             <div class="form_group">
                                                 <input type="hidden" value="{{$product->id}}" name="product_id">
+                                                <input type="hidden" value="{{$product->price}}" name="price">
+                                                <input type="hidden" value="1" name="quantity">
+                                                <input type="hidden" value="M" name="size">
+                                                <input type="hidden" value="Black" name="color">
                                             </div>
                                             <input class="btn essence-btn" type="submit" value="Buy Now">
                                         </form>
