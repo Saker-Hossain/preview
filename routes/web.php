@@ -32,6 +32,7 @@ Route::middleware(['auth', 'role:user|admin'])->group(function(){
         Route::get('/user-profile/history', 'History')->name('history');
         Route::get('/todays-deal', 'TodaysDeal')->name('todaysdeal');
         Route::get('/customer-service', 'CustomerService')->name('customerservice');
+        Route::get('/remove-cart-item/{id}', 'RemoveCartItem')->name('removecartitem');
     });
 });
 Route::get('/dashboard', function () {

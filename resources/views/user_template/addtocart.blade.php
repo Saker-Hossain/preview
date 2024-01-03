@@ -22,6 +22,9 @@
                         <th>Action</th>
 
                     </tr>
+                    @php
+                        $total = 0;
+                    @endphp
                     @foreach ($cart_item as $item)
                     <tr>
                         @php
@@ -34,9 +37,24 @@
                         <td>{{$item->color}}</td>
                         <td>{{$item->quantity}}</td>
                         <td>{{$item->price}}</td>
-                        <td><a href="" class="btn btn-danger">Remove</a></td>
+                        <td>
+                            <a href="{{ route('removecartitem', $item->id) }}" class="btn btn-danger">Remove</a></td>
                     </tr>
+                    @php
+                        $total = $total + $item->price;
+                    @endphp
                     @endforeach
+                    @if ($total >0)
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total</td>
+                        <td>{{$total}}</td>
+                        <td><a href="" class="btn btn-primary">Checkout</a></td>
+                    </tr>
+                    @endif
                 </table>
             </div>
         </div>
