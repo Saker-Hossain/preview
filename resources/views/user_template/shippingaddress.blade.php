@@ -1,6 +1,20 @@
 @extends('user_template.layouts.template')
 @section('main-content')
-<h2>checkout page</h2>
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img " style="background-image: url({{asset('home/img/bg-img/breadcumb.jpg')}});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Checkout</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Checkout Area Start ##### -->
 <div class="checkout_area section-padding-80">
     <div class="container">
         <div class="row">
@@ -9,7 +23,7 @@
                 <div class="checkout_details_area mt-50 clearfix">
 
                     <div class="cart-page-heading mb-30">
-                        <h5>Product Will Send At- </h5>
+                        <h5>Billing Address</h5>
                     </div>
 
                     <form action="{{route('addshppingaddress')}}" method="post">
@@ -143,4 +157,5 @@
         </div>
     </div>
 </div>
+<!-- ##### Checkout Area End ##### -->
 @endsection

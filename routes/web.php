@@ -26,6 +26,8 @@ Route::middleware(['auth', 'role:user|admin'])->group(function(){
     Route::controller(ClientController::class)->group(function(){
         Route::get('/add-to-cart', 'AddToCart')->name('addtocart');
         Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
+        Route::get('/shipping-address', 'GetShippingAddress')->name('shippingaddress');
+        Route::post('/add-shipping-info', 'AddShippingAddress')->name('addshppingaddress');
         Route::get('/checkout', 'Checkout')->name('checkout');
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');

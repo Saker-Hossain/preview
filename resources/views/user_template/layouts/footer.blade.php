@@ -5,7 +5,7 @@
             <div class="single_widget_area d-flex mb-30">
                 <!-- Logo -->
                 <div class="footer-logo mr-50">
-                    <a href="#"><img src="{{ asset('home/img/core-img/logo2.png') }}" alt=""></a>
+                    <a href="#"><img src="{{ asset('home/img/core-img/Preview_white.png') }}" alt="" style="width: 100px"></a>
                 </div>
                 <!-- Footer Menu -->
                 <div class="footer_menu">

@@ -109,9 +109,9 @@
     <!-- ##### Right Side Cart End ##### -->
 
     <!-- ##### Welcome Area Start ##### -->
-    <section class="welcome_area bg-img background-overlay" style="background-image: url({{ asset('home/img/bg-img/bg-1.jpg') }});">
+    {{-- <section class="welcome_area bg-img background-overlay" style="background-image: url({{ asset('home/img/bg-img/bg-1.jpg') }});">
         @include('user_template.layouts.home_slider')
-    </section>
+    </section> --}}
     {{-- <section class="welcome_area bg-img background-overlay" style="background-image: url({{ asset('home/img/bg-img/bg-1.jpg') }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">

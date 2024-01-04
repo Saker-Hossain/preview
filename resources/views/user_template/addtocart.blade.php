@@ -52,7 +52,7 @@
                         <td></td>
                         <td>Total</td>
                         <td>{{$total}}</td>
-                        <td><a href="" class="btn btn-primary">Checkout</a></td>
+                        <td><a href="{{route('shippingaddress')}}" class="btn btn-primary">Checkout</a></td>
                     </tr>
                     @endif
                 </table>

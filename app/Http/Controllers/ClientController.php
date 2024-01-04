@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\product;
+use App\Models\ShippingInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,8 +55,37 @@ class ClientController extends Controller
         return redirect()->route('addtocart')->with('message', 'Your item removed form cart successfully!');
     }
 
+    public function GetShippingAddress(){
+        return view('user_template.shippingaddress');
+    }
+
+    public function AddShippingAddress(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'street_address' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
+            'phone_number' => 'required',
+            'email_address' => 'required',
+        ]);
+        ShippingInfo::insert([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'street_address' => $request->street_address,
+            'postcode' => $request->postcode,
+            'city' => $request->city,
+            'phone_number' => $request->phone_number,
+            'email_address' => $request->email_address,
+        ]);
+
+        return redirect()->route('checkout');
+    }
+
     public function Checkout(){
-        return view('user_template.checkout');
+        $userid = Auth::id();
+        $cart_item = Cart::where('user_id', $userid)->get();
+        $shipping_address = ShippingInfo::where('user_id', $userid)->first();
+        return view('user_template.checkout', compact('cart_item', 'shipping_address'));
     }
 
     public function UserProfile(){
