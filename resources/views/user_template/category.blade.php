@@ -44,7 +44,7 @@
                             <div class="hover-content">
                                 <!-- Add to Cart -->
                                 <div class="add-to-cart-btn">
-                                    <form action="{{route('addproducttocart'}}" method="post">
+                                    <form action="{{route('addproducttocart')}}" method="post">
                                         @csrf
                                         <div class="form_group">
                                             <input type="hidden" value="{{$product->id}}" name="product_id">
