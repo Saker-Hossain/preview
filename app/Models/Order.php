@@ -16,7 +16,7 @@ class Order extends Model
         'shipping_city',
         'shipping_phoneNumber',
         'shipping_emailAddress',
-        'product_name',
+        'product_id',
         'quantity',
         'total_price',
     ];

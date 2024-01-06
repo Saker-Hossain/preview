@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('shipping_city');
             $table->string('shipping_phoneNumber');
             $table->string('shipping_emailAddress');
-            $table->string('product_name');
+            $table->integer('product_id');
             $table->integer('quantity');
             $table->integer('total_price');
             $table->timestamps();

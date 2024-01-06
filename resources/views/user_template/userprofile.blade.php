@@ -1,6 +1,7 @@
 @extends('user_template.layouts.user_profile_template')
 @section('profilecontent')
 <h1>dashboard</h1>
+{{-- <p>Status: {{ $order->status }}</p> --}}
 @endsection
 {{-- <div class="container bootdey flex-grow-1 container-p-y">
 

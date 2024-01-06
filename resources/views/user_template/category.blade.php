@@ -50,6 +50,8 @@
                                             <input type="hidden" value="{{$product->id}}" name="product_id">
                                             <input type="hidden" value="{{$product->price}}" name="price">
                                             <input type="hidden" value="1" name="quantity">
+                                            <input type="hidden" value="M" name="size">
+                                            <input type="hidden" value="Black" name="color">
                                         </div>
                                         <input class="btn essence-btn" type="submit" value="Buy Now">
                                     </form>

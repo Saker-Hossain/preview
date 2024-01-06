@@ -9,7 +9,6 @@
                     <div class="cart-page-heading">
                         <h5>Product Will Send At-</h5>
                     </div>
-
                     <ul class="order-details-form mb-4">
                         <li><span>Name</span> <span>{{$shipping_address->name}}</span></li>
                         <li><span>Address</span> <span>{{$shipping_address->street_address}}</span></li>
@@ -35,7 +34,7 @@
                         @php
                             $total = 0;
                         @endphp
-                        @foreach ($cart_item as $item)
+                        @foreach ($cart_items as $item)
                         <tr>
                             @php
                                 $product_name = App\Models\Product::where('id',$item->product_id)->value('product_name');
@@ -56,16 +55,21 @@
                         </tr>
                         @endif
                     </table>
-                    <div class="d-grid gap-2 d-md-block">
-                        <form  action="" method="POST">
-                            @csrf
-                            <a href="#" class="btn btn-primary">Place Order</a>
-                        </form>
-                        <form action="" method="POST">
-                            @csrf
-                            <a href="#" class="btn btn-danger">Cancel Order</a>
-                        </form>
-                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="d-flex d-grid gap-2" style="margin-top: 20px; margin-left: 40%">
+                    <form action="{{route('placeorder')}}" method="POST">
+                        @csrf
+                        <input type="submit" value="Place Order" class="btn btn-primary" style="margin-right: 5px;">
+                    </form>
+                    <form action="" method="POST">
+                        @csrf
+                        <a href="#" class="btn btn-danger">Cancel Order</a>
+                    </form>
                 </div>
             </div>
         </div>
